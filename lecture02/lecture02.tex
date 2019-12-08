@@ -159,7 +159,49 @@ Without Gray Cards, we need to guess which pixels correspond to white objects.  
 Color plays a critical role in skin detection, nude detection, and image segmentation, among other applications.
 
 
+\section{Images \& Color in Computer Vision}
 
+Color serves a as one of the main and fundamental tools used to perform analysis in computer vision. Representations of color allows us to convert our visual understanding of color to insightful numerical representations which can be used in a range of Computer Vision applications. Color in Computer Vision has a range of applications from skin detection, to image segmentation and even a tool for robotic dogs to win their first soccer game.
+
+\subsection{Types of Images}
+An image contains discrete number of pixels represented as a numerical interpretation dependant on the variety of the image.
+
+\begin{enumerate}
+    \item Binary: Black and white image  defined by a banary relationship, where 0 represents black and 1 represents one
+    \item Grayscale: A black and white where each pixel represents a shade ranging from 0(black) to 255(white)
+   
+    \item Color: Each pixel represents a tuple containing 3 values in the form of (R,G,B). Each value R(red), G(green) and B(blue) range from 0 to 255 which represents the relative intensity of that color component at that pixel. 
+    \end{enumerate}{}
+    
+    \includegraphics[scale = 0.3]{types.jpg}
+\subsection{Imagery Key Terms}
+\paragraph{Resolution} is a sampling parameter, defined in dots per inch (DPI) or equivalent measures of spatial pixel density, and its standard value for recent screen technologies is 72 dpi
+
+\paragraph{Brightness} Determines the intensity of the color presented by a pixel in a color image, or the shade of grey presented by a pixel in a greyscale image.
+
+\paragraph{Contrast} The difference between the lightest and darkest regions of an image.
+
+\paragraph{Highlights}The range of pixel brightness es that represent the lighter regions of an image.
+
+\paragraph{Shadows}The range of pixel brightness es that represent the darker regions of an image.
+
+\paragraph{Color Model} Determines how the color in a digital image is represented numerically. Examples include the RGB and HSB color models.
+
+\paragraph{Noise} Unwanted changes to the values of the pixels in an image, often introduced by the imaging device during capture. Examples include impulse noise and Gaussian noise.
+\subsection{Image Histograms}
+Histogram of an image provides the frequency of the brightness (intensity) value in the image, capturing the distribution of gray levels in the image.
+
+\includegraphics[scale = 0.42]{histogram.png}
+ 
+\subsubsection{Image Histogram Algorithm}
+
+\begin{minted}{python}
+# Optional: Convert image to grayscale
+def histogram(image):
+    h = np.zeros(255) #a histogram representing the count of a given intensity
+    for row in image.shape[0]:
+        for col in image.shape[1]: val = image[row, col] h[val] += 1
+\end{minted}
 
 \section{Linear Algebra Primer: Vectors and Matrices}
 \paragraph{Definition} Vectors and matrices are simply collections of ordered numbers that represent something: movements in space, scaling factors, pixel brightness, etc.
